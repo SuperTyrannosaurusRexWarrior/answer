@@ -1,30 +1,46 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-button-group>
+      <el-button type="primary" icon="el-icon-edit"></el-button>
+      <el-button type="primary" icon="el-icon-share"></el-button>
+      <el-button type="primary" icon="el-icon-delete"></el-button>
+    </el-button-group>
+
+    <el-row gutter="20">
+      <el-col :span="6">
+        <el-input placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input1"></el-input>
+      </el-col>
+      <el-col :span="6">
+        <el-input size="medium" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input2"></el-input>
+      </el-col>
+      <el-col :span="6">
+        <el-input size="small" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input3"></el-input>
+      </el-col>
+      <el-col :span="6">
+        <el-input size="mini" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input4"></el-input>
+      </el-col>
+    </el-row>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  components: {},
+  data() {
+    return {
+      input1: '',
+      input2: '',
+      input3: '',
+      input4: ''
+    }
   }
 }
 </script>
 
-<style>
+<style scoped lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
