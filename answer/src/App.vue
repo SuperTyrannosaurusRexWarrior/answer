@@ -1,25 +1,45 @@
 <template>
   <div id="app">
-    <el-button-group>
-      <el-button type="primary" icon="el-icon-edit"></el-button>
-      <el-button type="primary" icon="el-icon-share"></el-button>
-      <el-button type="primary" icon="el-icon-delete"></el-button>
-    </el-button-group>
+    <el-container>
+      <el-header>
+        <el-page-header content="详情页面" title="测试"></el-page-header>
+        <el-divider></el-divider>
+      </el-header>
+      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <el-menu-item-group>
+            <template slot="title">分组一</template>
+            <el-menu-item index="1-1">选项1</el-menu-item>
+            <el-menu-item index="1-2">选项2</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group>
+            <template slot="title">分组二</template>
+            <el-menu-item index="1-3">选项3</el-menu-item>
+          </el-menu-item-group>
+          <el-submenu index="1-4" title="">
+            <template slot="title">选项4</template>
+            <el-menu-item index="1-4-1">选项1</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="3" disabled>
+          <i class="el-icon-document"></i>
+          <span slot="title">导航三</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-setting"></i>
+          <span slot="title">导航四</span>
+        </el-menu-item>
+      </el-menu>
+    </el-container>
 
-    <el-row gutter="20">
-      <el-col :span="6">
-        <el-input placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input1"></el-input>
-      </el-col>
-      <el-col :span="6">
-        <el-input size="medium" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input2"></el-input>
-      </el-col>
-      <el-col :span="6">
-        <el-input size="small" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input3"></el-input>
-      </el-col>
-      <el-col :span="6">
-        <el-input size="mini" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input4"></el-input>
-      </el-col>
-    </el-row>
   </div>
 </template>
 
@@ -30,22 +50,36 @@ export default {
   components: {},
   data() {
     return {
-      input1: '',
-      input2: '',
-      input3: '',
-      input4: ''
+      isCollapse: true
+    };
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
   }
 }
 </script>
 
 <style scoped lang="less">
+.el-page-header {
+  margin-top: 10px;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  // margin-top: 60px;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
 }
 </style>
