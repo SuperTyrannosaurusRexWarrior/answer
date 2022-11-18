@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <el-button-group>
       <el-button type="primary" icon="el-icon-edit"></el-button>
       <el-button type="primary" icon="el-icon-share"></el-button>
@@ -21,16 +20,12 @@
         <el-input size="mini" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input4"></el-input>
       </el-col>
     </el-row>
-=======
->>>>>>> 1c8f5ba8d8aa80b25a4d97fb1e5b879dec61065f
-
   </div>
 </template>
 
 <script>
 
 export default {
-<<<<<<< HEAD
   name: 'app',
   components: {},
   data() {
@@ -41,9 +36,6 @@ export default {
       input4: ''
     }
   }
-=======
-  name: 'app'
->>>>>>> 1c8f5ba8d8aa80b25a4d97fb1e5b879dec61065f
 }
 </script>
 
