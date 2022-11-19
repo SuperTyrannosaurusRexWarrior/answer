@@ -1,46 +1,58 @@
 <template>
-        <el-table
-        height="250"
-        border
-        :stripe="tableConfig.isStripe"
-        :data="tableData"
-        style="width: 100%; min-height: 400px; margin-top: 10px;">
-            <el-table-column
-                sortable
-                prop="date"
-                label="创建日期"
-                width="180">
-            <template slot-scope="scope">
-                <i class="el-icon-time"></i>
-                <span style="margin-left: 10px">{{ scope.row.date }}</span>
-            </template>
-            </el-table-column>
-            <el-table-column
-                sortable
-                prop="name"
-                label="课程"
-                width="180">
-            </el-table-column>
-            <el-table-column
-                sortable
-                prop="address"
-                label="班级">
-            </el-table-column>
-            <el-table-column label="操作">
+        <div>
+            <el-table
+            height="250"
+            border
+            :stripe="tableConfig.isStripe"
+            :data="tableData"
+            style="width: 100%; min-height: 400px; margin-top: 10px;">
+                <el-table-column
+                    sortable
+                    prop="date"
+                    label="创建日期"
+                    width="180">
                 <template slot-scope="scope">
-                    <el-button
-                    size="mini"
-                    @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                    <el-button
-                    size="mini"
-                    type="danger"
-                    @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    <i class="el-icon-time"></i>
+                    <span style="margin-left: 10px">{{ scope.row.date }}</span>
                 </template>
-            </el-table-column>
-        </el-table>
+                </el-table-column>
+                <el-table-column
+                    sortable
+                    prop="name"
+                    label="课程"
+                    width="180">
+                </el-table-column>
+                <el-table-column
+                    sortable
+                    prop="address"
+                    label="班级">
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button
+                        size="mini"
+                        @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button
+                        size="mini"
+                        type="danger"
+                        @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-form>
+                <el-form-item>
+                    <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                    <el-button>取消</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
 </template>
 
-<style>
+<style scoped lang="less">
+
+.demo1{
+    margin-top: 20px;
+}
 
 </style>
 
