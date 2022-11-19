@@ -88,6 +88,9 @@ export default {
         },
         handleDelete(index, row) {
             console.log(index, row);
+        },
+        onSubmit() {
+            console.log('submit!');
         }
     }
 }

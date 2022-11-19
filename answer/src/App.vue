@@ -18,7 +18,7 @@
           </el-header>
           <el-row>
             <el-col :span="5">
-              <el-menu default-active="1-1" class="el-menu-vertical-demo" @open="handleOpen"  @close="handleClose" @select="handleSelect" :unique-opened="menuConfig.isOpened" :router="menuConfig.isRouter">
+              <el-menu default-active="list" class="el-menu-vertical-demo" @open="handleOpen"  @close="handleClose" @select="handleSelect" :unique-opened="menuConfig.isOpened" :router="menuConfig.isRouter">
                 <el-menu-item v-for="(menu,index) in menus" :index="menu.index">
                   <i :class="menu.icon"></i>
                   <span slot="title">{{menu.title}}</span>
@@ -60,18 +60,18 @@ export default {
       },
 
       items:[{
-          id:1,
-          title:"首页",
-          to:{path : "/"}
-        },{
-          id:2,
-          title:"课程",
-          to:{path : "/"}
-        },{
-          id:3,
-          title:"OK",
-          to:{path : "/"}
-        }],
+        id:1,
+        title:"首页",
+        to:{path : "/"}
+      },{
+        id:2,
+        title:"课程",
+        to:{path : "/"}
+      },{
+        id:3,
+        title:"OK",
+        to:{path : "/"}
+      }],
 
       menus:[{
         icon:"el-icon-document",
@@ -98,13 +98,18 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key+ "=======" +keyPath);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
     handleSelect(key, keyPath){
-      console.log(key, keyPath);
+      this.items[2].to.path = `/${key}`
+      for (let index = 0; index < this.menus.length; index++) {
+        if(key == this.menus[index].index){
+          this.items[2].title = this.menus[index].title
+        }
+      }
     }
   }
 }
