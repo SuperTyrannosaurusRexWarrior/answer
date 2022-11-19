@@ -1,5 +1,4 @@
 <template>
-    <transition name="el-fade-in-linear">
         <el-table
         :stripe="tableConfig.isStripe"
         :data="tableData"
@@ -19,7 +18,6 @@
                 label="地址">
             </el-table-column>
         </el-table>
-    </transition>
 </template>
 
 <style>
