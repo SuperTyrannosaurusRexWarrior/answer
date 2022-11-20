@@ -4,24 +4,26 @@
       <el-col :span="18" :offset="3">
         <el-container>
           <el-header>
-              <el-row :gutter="20" class="grid-content bg-purple-dark">
-                <el-col :span="18">
-                  <el-breadcrumb separator="/" style="display: flex;">
-                    <el-breadcrumb-item v-for="(item,index) in items" :key="item.id" :to="item.to">{{item.title}}</el-breadcrumb-item>
-                  </el-breadcrumb>
-                </el-col>
-                <el-col :span="6" :offset="12">
-                  <el-avatar :size="50" :src="user.photo">
-                  </el-avatar>
-                </el-col>
-              </el-row>
+            <el-row :gutter="20" class="grid-content bg-purple-dark">
+              <el-col :span="18">
+                <el-breadcrumb separator="/" style="display: flex;">
+                  <el-breadcrumb-item v-for="(item, index) in items" :key="item.id" :to="item.to">{{ item.title }}
+                  </el-breadcrumb-item>
+                </el-breadcrumb>
+              </el-col>
+              <el-col :span="6" :offset="12">
+                <el-avatar :size="50" :src="user.photo">
+                </el-avatar>
+              </el-col>
+            </el-row>
           </el-header>
           <el-row>
             <el-col :span="5">
-              <el-menu default-active="list" class="el-menu-vertical-demo" @open="handleOpen"  @close="handleClose" @select="handleSelect" :unique-opened="menuConfig.isOpened" :router="menuConfig.isRouter">
-                <el-menu-item v-for="(menu,index) in menus" :index="menu.index">
+              <el-menu default-active="list" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+                @select="handleSelect" :unique-opened="menuConfig.isOpened" :router="menuConfig.isRouter">
+                <el-menu-item v-for="(menu, index) in menus" :index="menu.index">
                   <i :class="menu.icon"></i>
-                  <span slot="title">{{menu.title}}</span>
+                  <span slot="title">{{ menu.title }}</span>
                 </el-menu-item>
               </el-menu>
             </el-col>
@@ -41,72 +43,72 @@ export default {
   components: {},
   data() {
     return {
-      menuConfig:{
+      menuConfig: {
         isRouter: true,
         isOpened: true
       },
-      
-      user:{
-        photo:require("../public/1.jpg"),
-        name:"",
-        account:"",
-        password:"",
-        sex:"",
-        birthday:"",
-        entryTime:"",
-        job:"",
-        phone:"",
-        email:""
+
+      user: {
+        photo: require("../public/1.jpg"),
+        name: "",
+        account: "",
+        password: "",
+        sex: "",
+        birthday: "",
+        entryTime: "",
+        job: "",
+        phone: "",
+        email: ""
       },
 
-      items:[{
-        id:1,
-        title:"首页",
-        to:{path : "/"}
-      },{
-        id:2,
-        title:"课程",
-        to:{path : "/"}
-      },{
-        id:3,
-        title:"OK",
-        to:{path : "/"}
+      items: [{
+        id: 1,
+        title: "首页",
+        to: { path: "/" }
+      }, {
+        id: 2,
+        title: "课程",
+        to: { path: "/" }
+      }, {
+        id: 3,
+        title: "OK",
+        to: { path: "/" }
       }],
 
-      menus:[{
-        icon:"el-icon-document",
-        index:"list",
-        title:"课程列表"
-      },{
-        icon:"el-icon-circle-plus-outline",
-        index:"puls",
-        title:"添加课程"
-      },{
-        icon:"el-icon-edit-outline",
-        index:"personalCenter",
-        title:"个人信息"
-      },{
-        icon:"el-icon-setting",
-        index:"setting",
-        title:"基础设置"
-      },{
-        icon:"el-icon-info",
-        index:"about",
-        title:"关于我们"
+      menus: [{
+        icon: "el-icon-document",
+        index: "list",
+        title: "课程列表"
+      }, {
+        icon: "el-icon-circle-plus-outline",
+        index: "puls",
+        title: "添加课程"
+      }, {
+        icon: "el-icon-edit-outline",
+        index: "personalCenter",
+        title: "个人信息"
+      }, {
+        icon: "el-icon-setting",
+        index: "setting",
+        title: "基础设置"
+      }, {
+        icon: "el-icon-info",
+        index: "about",
+        title: "关于我们"
       }]
     };
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key+ "=======" +keyPath);
+      console.log(key + "=======" + keyPath);
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-    handleSelect(key, keyPath){
+    handleSelect(key, keyPath) {
       this.items[2].to.path = `/${key}`
       for (let index = 0; index < this.menus.length; index++) {
-        if(key == this.menus[index].index){
+        if (key == this.menus[index].index) {
           this.items[2].title = this.menus[index].title
         }
       }
@@ -136,18 +138,22 @@ export default {
 
 .el-row {
   margin-bottom: 20px;
+
   &:last-child {
     margin-bottom: 0;
   }
 }
+
 .el-col {
   border-radius: 4px;
 }
+
 .bg-purple-dark {
-  background: linear-gradient(to right,#00b865, #00febe);;
+  background: linear-gradient(to right, #00b865, #00febe);
+  ;
 }
 
-.el-breadcrumb{
+.el-breadcrumb {
   color: #fff;
   width: 300px;
 }

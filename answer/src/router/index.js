@@ -16,23 +16,23 @@ const routes = [
     component: About
   },
   {
-    path:"/list",
-    name:"list",
+    path: "/list",
+    name: "list",
     component: CouList
   },
   {
-    path:"/puls",
-    name:"puls",
+    path: "/puls",
+    name: "puls",
     component: CouPuls
   },
   {
-    path:"/personalCenter",
-    name:"personalCenter",
+    path: "/personalCenter",
+    name: "personalCenter",
     component: PersonalCenter
   },
   {
-    path:"/setting",
-    name:"setting",
+    path: "/setting",
+    name: "setting",
     component: Setting
   }
 ]
