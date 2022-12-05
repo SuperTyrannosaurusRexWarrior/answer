@@ -1,7 +1,10 @@
 <template>
     <div>
-        <el-table height="250" border :stripe="tableConfig.isStripe" :data="tableData"
-            style="width: 100%; min-height: 400px; margin-top: 10px;">
+        <el-table height="250" border :stripe="tableConfig.isStripe" :data="tableData" style="
+                width: 100%;
+                min-height: 400px; 
+                margin-top: 10px;
+            " highlight-current-row @current-change="handleCurrentChange">
             <el-table-column sortable prop="date" label="创建日期" width="180">
                 <template slot-scope="scope">
                     <i class="el-icon-time"></i>
@@ -73,6 +76,12 @@ export default {
         },
         onSubmit() {
             console.log('submit!');
+        },
+        handleCurrentChange(val) {
+            this.currentRow = val;
+        },
+        handleCurrentChange(val) {
+            console.log(val);
         }
     }
 }

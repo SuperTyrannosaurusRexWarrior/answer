@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import CouList from '@/components/CouList.vue'
 import CouPuls from '@/components/CouPuls.vue'
 import Setting from '@/components/Setting.vue'

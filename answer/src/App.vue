@@ -67,10 +67,6 @@ export default {
         to: { path: "/" }
       }, {
         id: 2,
-        title: "课程",
-        to: { path: "/" }
-      }, {
-        id: 3,
         title: "OK",
         to: { path: "/" }
       }],
@@ -78,11 +74,11 @@ export default {
       menus: [{
         icon: "el-icon-document",
         index: "list",
-        title: "课程列表"
+        title: "答辩列表"
       }, {
         icon: "el-icon-circle-plus-outline",
         index: "puls",
-        title: "添加课程"
+        title: "New答辩"
       }, {
         icon: "el-icon-edit-outline",
         index: "personalCenter",
@@ -106,10 +102,10 @@ export default {
       console.log(key, keyPath);
     },
     handleSelect(key, keyPath) {
-      this.items[2].to.path = `/${key}`
+      this.items[1].to.path = `/${key}`
       for (let index = 0; index < this.menus.length; index++) {
         if (key == this.menus[index].index) {
-          this.items[2].title = this.menus[index].title
+          this.items[1].title = this.menus[index].title
         }
       }
     }
